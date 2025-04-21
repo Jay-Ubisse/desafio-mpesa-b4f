@@ -191,25 +191,30 @@ function isValidatedPassword() {
   } else {
     let comfimar = Number(prompt(`comnfirmas a compra de CREDELECT de ${valorCompra} 1. comfimar a compra 2. sair`));
 
+    
   }
-
 }
+
+
 function isValidatedNumberCont() {
-  let numeroComtador = Number(prompt("numero do contador"));
 
-  if ((numeroComtador.length === 11)
-  ) {
-    //validar numero do contador;
-    const valorCompra = Number(prompt("Insira o motante da compra"));
-
-    //validar de 10mt ate 25000;
-
-  }
-}
-
-function isValidatedAmount(params) {
-  if (10 < valorCompra < 2500) {
+  const inputContador = prompt("Número do contador");
+  
+  // Verifica se o contador tem 11 numeros
+  if (inputContador.length !== 11 || isNaN(inputContador)) {
+    alert("Número do contador inválido!");
+    return false;
   }
 
+  // Conversão para número após validação
+  const numeroContador = Number(inputContador);
 
+  // Validação do valor de compra
+  const valorCompra = Number(prompt("Insira o montante da compra"));
+  if (valorCompra < 10 || valorCompra > 25000 || isNaN(valorCompra)) {
+    alert("Valor da compra inválido!");
+    return false;
+  }
+
+  return true;
 }
