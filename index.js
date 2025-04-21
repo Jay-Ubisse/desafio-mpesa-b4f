@@ -16,24 +16,43 @@ do {
     `)
 
   );
-  switch(option){
-    
-    case 6:
-      menu();
-  
-      break;
-    } while (option !== 7);
-  
-} while (option !== 7);
+  switch (option) {
+    //caso a opcao seja depositar dinheiro
+    case 3:depositarDinheiro();
+    case 6:opcaoMinhaConta();
+      
+}} while (option !== 7);
 
 
 
 
+function depositarDinheiro(){
+  let validacao = Number(prompt(`Insira o seu pin`))
+  while (validacao !== pin) {
+    validacao = Number(prompt(`Pin invalido, tente novamente!`))
+  }
+  let deposit = Number(
+    prompt('Depositar dinheiro \n\n Qual é o valor que deseja depositar?')
+  )
+  while ((deposit <= 0) | (deposit === '') | isNaN(deposit)) {
+    deposit = prompt(
+      `Valor invalido, Tente novamente!\n\n Insira o valor que deseja depositar`
+    )
+  }
+  saldo += deposit //adicionar o valor depositado ao saldo
+  let out = prompt(
+    `\n\n Deposito de ${deposit.toFixed(
+      2
+    )} MT concluido com sucesso! \n\n 1.Continuar \n 2.Sair`
+  )
+  if (out == 2) {
+    option = 7
+  } //opcao para sair do programa
+  }
 
 
 
-
-function menu(){
+function opcaoMinhaConta(){
 do{
   option=Number(   
     prompt(` 
@@ -53,7 +72,19 @@ do{
           alert("pin errado")
         }
         break;
-
-    }
-  }while(option!==3)
-  }
+          case 2:
+            const lastPIN = Number(prompt("Insira o pin anterior"));
+            if (lastPIN === pin) {
+              const newPIN = Number(prompt("Insira o novo pin"));
+              if (newPIN !== pin) {
+                alert("PIN alterado com sucesso");
+                pin = newPIN;
+              } else {
+                alert("O pin Actual deve ser diferente do Antigo");
+              }
+            } else {
+              alert("PIN incorreto, tente novamente");
+            }
+        }
+    }while(option!==3)
+}
