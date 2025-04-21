@@ -52,4 +52,24 @@ do {
 
       }// fim case destino
 
+  switch (option) {
+    case 1:  
+    prompt (
+          `
+          Tranferir Dinheiro:
+          
+          1. Carteira Movel
+          2. Bancos
+          0. Voltar
+          `
+        )
+      
+      break;
+    default:
+    
+      break;
+  }
+
 } while (option !== 7);
+
+
