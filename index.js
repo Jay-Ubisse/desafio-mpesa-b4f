@@ -16,4 +16,30 @@ do {
     7. Sair
     `)
   );
+
+  switch (option) {
+    case 6:
+      const myAcount = Number(
+        prompt(`
+  1. Verificar saldo
+  2. Alterar pin
+  3. Voltar
+  `)
+      );
+      switch (myAcount) {
+        case 2:
+          const lastPIN = Number(prompt("Insira o pin anterior"));
+          if (lastPIN === pin) {
+            const newPIN = Number(prompt("Insira o novo pin"));
+            if (newPIN !== pin) {
+              alert("PIN alterado com sucesso");
+              pin = newPIN;
+            } else {
+              alert("O pin Actual deve ser diferente do Antigo");
+            }
+          } else {
+            alert("PIN incorreto, tente novamente");
+          }
+      }
+  }
 } while (option !== 7);
