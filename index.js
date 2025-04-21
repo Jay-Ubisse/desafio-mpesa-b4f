@@ -16,6 +16,7 @@ do {
     7. Sair
     `)
   );
+<<<<<<< HEAD
 
 
   switch
@@ -47,3 +48,26 @@ do {
   //porfavor introduza o pin*/
   }
 } while (option !== 7);
+=======
+  switch (option) {
+    case 1:  
+    prompt (
+          `
+          Tranferir Dinheiro:
+          
+          1. Carteira Movel
+          2. Bancos
+          0. Voltar
+          `
+        )
+      
+      break;
+    default:
+    
+      break;
+  }
+
+} while (option !== 7);
+
+
+>>>>>>> 712d36edde2ede170ff38b301a0c0cd1a8e0b267
