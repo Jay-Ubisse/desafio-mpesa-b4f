@@ -65,17 +65,10 @@ function comprarCedelec() {
       );
       switch (option) {
         case 1:
-          const numeroComtador = Number(prompt("numero do contador"));
-          if( (numeroComtador.length === 11)
-          ){
-           //validar numero do contador;
-            const valorCompra = Number(prompt("Insira o motante da compra"));
-             
-            //validar de 10mt ate 25000;
-          if ( 10 < valorCompra < 2500){ 
-          }
-        }
-
+          let numeroComtador = Number(prompt("numero do contador"));
+          //validar numero do contador;
+          let valorCompra = Number(prompt("numero do contador"));
+          //validar de 10mt ate 25000;
           let password = Number(prompt(" digite o pin"));
           if (pin !== password) {
             alert("pin errado");
