@@ -32,10 +32,14 @@ do {
       }
       saldo += deposit //adicionar o valor depositado ao saldo
       let out = prompt(
-        `\n\n Deposito de ${deposit.toFixed(2)} MT concluido com sucesso! \n\n 1.Continuar \n 2.Sair`
+        `\n\n Deposito de ${deposit.toFixed(
+          2
+        )} MT concluido com sucesso! \n\n 1.Continuar \n 2.Sair`
       )
       if (out == 2) {
         option = 7
       } //opcao para sair do programa
   }
-} while (option !== 7) //sair do programa
+} while (
+  option !== 7 //sair do programa
+)
