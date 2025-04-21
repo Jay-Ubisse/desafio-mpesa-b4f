@@ -305,4 +305,42 @@ do {
     default:
       break;
   }
+
 } while (option !== 7);
+
+
+function isValidatedPassword() {
+  let password = Number(prompt(" digite o pin"));
+  if (pin !== password) {
+    alert("pin errado");
+
+  } else {
+    let comfimar = Number(prompt(`comnfirmas a compra de CREDELECT de ${valorCompra} 1. comfimar a compra 2. sair`));
+
+
+  }
+}
+
+
+function isValidatedNumberCont() {
+
+  const inputContador = prompt("Número do contador");
+
+  // Verifica se o contador tem 11 numeros
+  if (inputContador.length !== 11 || isNaN(inputContador)) {
+    alert("Número do contador inválido!");
+    return false;
+  }
+
+  // Conversão para número após validação
+  const numeroContador = Number(inputContador);
+
+  // Validação do valor de compra
+  const valorCompra = Number(prompt("Insira o montante da compra"));
+  if (valorCompra < 10 || valorCompra > 25000 || isNaN(valorCompra)) {
+    alert("Valor da compra inválido!");
+    return false;
+  }
+
+  return true;
+}
