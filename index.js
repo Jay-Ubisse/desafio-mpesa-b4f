@@ -66,6 +66,27 @@ do {
      } else {
       transferirvalor -= saldo;
   }
+  if ((receberNumero.length === 9 && receberNumero.charAt(1) === "6")||
+  (receberNumero.length === 9 && receberNumero.charAt(1) === "7")){
+  alert ("Você está transferindo dinheiro para uma conta E-mola");
+  }
+  else{
+    prompt ("Número de conta inválido, por favor introduza novamente o número de conta");
+  }
+  
+  let valor = prompt ("Digita o valor:");
+  if (valor>saldo) { alert ("Falha, o saldo da sua conta M-pesa é insuficiente para completar a transaccao.")
+    
+  } else {
+  }
+  
+  let pin1 = Number(prompt("Por favor introduza o PIN:"));
+
+  if (pin === pin1) { 
+    alert ("Confirmado. Transferiste o valor com sucesso");
+  } else { 
+    alert ("PIN incorrecto, por favor verifica o PIN e tenta novamente")
+  }
 
   
       break;
