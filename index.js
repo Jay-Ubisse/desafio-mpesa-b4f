@@ -16,19 +16,23 @@ do {
     `)
   )
   switch (option) {
-    //caso a opcaop seja depositar dinheiro
+    //caso a opcao seja depositar dinheiro
     case 3:
-      let deposit = prompt(
-        'Depositar dinheiro \n\n Qual é o valor que deseja depositar?'
+      let validacao = Number(prompt(`Insira o seu pin`))
+      while (validacao !== pin) {
+        validacao = Number(prompt(`Pin invalido, tente novamente!`))
+      }
+      let deposit = Number(
+        prompt('Depositar dinheiro \n\n Qual é o valor que deseja depositar?')
       )
       while ((deposit <= 0) | (deposit === '') | isNaN(deposit)) {
         deposit = prompt(
           `Valor invalido, Tente novamente!\n\n Insira o valor que deseja depositar`
         )
       }
-      saldo += Number(deposit)
+      saldo += deposit //adicionar o valor depositado ao saldo
       let out = prompt(
-        `\n\n Deposito de ${deposit} MT concluido com sucesso! \n\n 1.Continuar \n 2.Sair`
+        `\n\n Deposito de ${deposit.toFixed(2)} MT concluido com sucesso! \n\n 1.Continuar \n 2.Sair`
       )
       if (out == 2) {
         option = 7
