@@ -20,6 +20,7 @@ do {
   let bancaria;
   let value;
   const taxa = 10;
+  
 
   switch (option) {
     case 1: // Transferência
@@ -38,7 +39,35 @@ do {
 
   switch (destino) {
     case 1: //Transferir para Carteiras Moveis
-      alert("Função ainda não implementada.");
+    const NUMERO = prompt ("Digita um número valido");
+    if(
+      (NUMERO.length === 9 && NUMERO.charAt(1)==="2") ||
+      (NUMERO.length === 9 && NUMERO.charAt (1) === "3")
+    ) { 
+    
+    const VALOR = Number(prompt(`Insira o valor`));
+      if (VALOR > saldo) {
+        alert(`Saldo insuficiente o seu saldo actual é de ${saldo}`)
+      }
+        
+   const INSIRA_PIN = Number(prompt(`Insira o pin`));
+  if (INSIRA_PIN === pin) {
+      prompt(`Estas a tranferir ${VALOR} para ${NUMERO} e taxa é de 5mt`)
+   } else { 
+    INSIRA_PIN !== pin
+        alert("Pin incoreto")
+   }
+   alert(`Confirmado, transferiu ${VALOR} para ${NUMERO} o seu saldo actual é de ${saldo}`)
+
+    if (transferirvalor < saldo){
+          alert()
+      }
+         
+     } else {
+      transferirvalor -= saldo;
+  }
+
+  
       break;
     case 2: // Transferir para banco
       bancaria = Number(
