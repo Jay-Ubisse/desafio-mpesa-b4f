@@ -12,7 +12,71 @@ function isValidatedPassword() {
   }
 
 }
-function isValidateNumberCell() {
+function BuyMeuNumber() {
+  option = Number(prompt(`
+              1. 2MT = 100 SMS/1d
+              2. 4MT = 180 SMS/3d
+              3. 10MT = 500 SMS/7d
+              4. 20MT = 1000 SMS/7d
+              5. 40MT = 2000 SMS/30d
+              6. voltar
+              7. Menu Principal
+              `))
+  switch (option) {
+    case 1:
+      if (isValidatedPassword() == true) {
+
+        if (saldo > 0.0) {
+          saldo -= 2;
+          return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
+        } else {
+          alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
+        }
+
+      }
+      break;
+    case 2:
+      if (isValidatedPassword() == true) {
+        if (saldo > 0.0) {
+          saldo -= 4;
+          return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
+        } else {
+          alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
+        }
+      }
+      break;
+    case 3:
+      if (isValidatedPassword() == true) {
+        if (saldo > 0.0) {
+          saldo -= 10;
+          return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
+        } else {
+          alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
+        }
+      }
+      break;
+    case 4:
+      if (isValidatedPassword() == true) {
+        if (saldo > 0.0) {
+          saldo -= 20;
+          return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
+        } else {
+          alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
+        }
+      }
+      break;
+    case 5:
+      if (isValidatedPassword() == true) {
+        if (saldo > 0.0) {
+          saldo -= 40;
+          return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
+        } else {
+          alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
+        }
+      }
+  }
+}
+function compareToAnotherNumber() {
   const receberNumero = prompt("digita o numero");
   if (
     (receberNumero.length === 9 && receberNumero.charAt(1) === 4)
@@ -86,11 +150,10 @@ function isValidateNumberCell() {
 
 }
 function isValidatedNumberCont() {
-  const inputContador = prompt("Número do contador");
+  const INPUTCONTADOR = prompt("Número do contador");
 
   // Verifica se o contador tem 11 numeros
-  if (inputContador.length !== 11 || isNaN(inputContador)) {
-
+  if (INPUTCONTADOR.length !== 11 || isNaN(INPUTCONTADOR)) {
     return "Número do contador inválido!";
   } else {
     return true;
@@ -99,7 +162,7 @@ function isValidatedNumberCont() {
 }
 
 function isValidatedAmount() {
-  const valorCompra = Number(prompt("Insira o montante da compra"));
+  let valorCompra = Number(prompt("Insira o montante da compra"));
   if (valorCompra < 10 || valorCompra > 25000 || isNaN(valorCompra)) {
 
     return "Valor da compra inválido!";
@@ -109,156 +172,83 @@ function isValidatedAmount() {
 
 }
 
-function comprarCedelec() {
-  option = Number(prompt(`
+function buyCredelec() {
+  do {
+    option = Number(prompt(`
               1. Novo contador
               2. Lista dos favoritos
               3. Reenviar a ultima Compra
               4. Sair`));
-  switch (option) {
-    case 1:
-      option = Number(
-        prompt(`
-           1. Novo contador
-           2. Lista dos favoritos
-           3. Sair
-         `));
-      switch (option) {
-        case 1:
-          ;
-          if (isValidatedNumberCont() == true) {
-            if (isValidatedAmount() == true) {
-              if (isValidatedPassword() == true) {
-                alert(`comfirmas a compra de CREDELECT de ${valorCompra} 1. comfimar a compra 2. sair`);
-              } else {
-                alert("O pin é inválido")
-              };
+    switch (option) {
+      case 1:
+        alert(buyNewCount());
+        break;
+      case 2:
+        alert(gerirCredelec());
+        break;
+      case 3:
+        if (isValidatedPassword() == true) {
+          alert("Por favor aguarde a messagem");
+        }
+        break;
+      default: alert("opcao ivalida");
+        break;
+    }
+  } while (option != 4);
+}
+function buyNewCount() {
+  do {
+    option = Number(
+      prompt(`
+                    1. Novo contador
+                    2. Lista dos favoritos
+                    3. Sair
+                `));
+    switch (option) {
+      case 1:
+        let name = prompt("digite o nome do contador");
+        if (isValidatedNumberCont() == true) {
+          if (isValidatedAmount() == true) {
+            if (isValidatedPassword() == true) {
+              alert(`comfirmas a compra de CREDELECT de ${valorCompra}  para ${name}1. comfimar a compra 2. sair`);
+              //falta mostrar no final de cada compra uma messagem nao sei porque nao funciona
             } else {
-              alert("Montante inválido");
+              alert("O pin e Invalide")
             };
-
           } else {
-            alert("Número do contador inválido!")
-          }
-
-          break;
-        case 2:
-          option = Number(
-            prompt(`
-           1. adicionar  Novo contador
-           2. Remover Contador
-           3. Sair
-         `));
-          switch (option) {
-            case 1:
-              let name = prompt("digite o nome do contador");
-              if (isValidatedNumberCont() == true) {
-                if (isValidatedAmount() == true) {
-                  if (isValidatedPassword() == true) {
-                    alert(`comfirmas a compra de CREDELECT de ${valorCompra} 1. comfimar a compra 2. sair`);
-                  } else {
-                    alert("O pin e Invalide")
-                  };
-                } else {
-                  alert("Montante Invalido");
-                };
-
-              } else {
-                alert("Número do contador inválido!")
-              }
-              break;
-            case 2:
-              //Remover Contador 
-              alert("sem favoritos");
-              option = Number(prompt(`3. Sair `));
-              break;
-            case 3:
-              if (isValidatedPassword() == true) {
-                alert("Por favor aguarde a messagem");
-              }
-
-              break;
-            default:
-              break;
-          }
-          break;
-        case 4:
-          break;
-        default:
-          break;
-      }
-  }
-
+            alert("Montante Invalido");
+          };
+        } else {
+          alert("Número do contador inválido!")
+        }
+        break;
+      case 2:
+        alert(manageCounters());
+        break;
+      default: alert("opcao ivalida");
+        break;
+    }
+  } while (opcaoCredelec !== 3);
 }
-
-function ComprarmeuNumero() {
-  pacotes = Number(prompt(`
-              1. 2MT = 100 SMS/1d
-              2. 4MT = 180 SMS/3d
-              3. 10MT = 500 SMS/7d
-              4. 20MT = 1000 SMS/7d
-              5. 40MT = 2000 SMS/30d
-              6. voltar
-              7. Menu Principal
-              `))
-  switch (pacotes) {
-    case 1:
-      if (isValidatedPassword() == true) {
-
-        if (saldo > 0.0) {
-          saldo -= 2;
-          return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
-        } else {
-          alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
-        }
-
-      }
-      break;
-    case 2:
-      if (isValidatedPassword() == true) {
-        if (saldo > 0.0) {
-          saldo -= 4;
-          return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
-        } else {
-          alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
-        }
-      }
-      break;
-    case 3:
-      if (isValidatedPassword() == true) {
-        if (saldo > 0.0) {
-          saldo -= 10;
-          return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
-        } else {
-          alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
-        }
-      }
-      break;
-    case 4:
-      if (isValidatedPassword() == true) {
-        if (saldo > 0.0) {
-          saldo -= 20;
-          return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
-        } else {
-          alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
-        }
-      }
-      break;
-    case 5:
-      if (isValidatedPassword() == true) {
-        if (saldo > 0.0) {
-          saldo -= 40;
-          return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
-        } else {
-          alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
-        }
-      }
-  }
+function manageCounters() {
+  do {
+    option = Number(prompt(`
+            1.Adicionar Novo contador
+            2. Remover contador
+            3. Sair`));
+    switch (option) {
+      case 1:
+        alert(buyNewCount());
+        break;
+      case 2:
+        alert("sem favoritos");
+        gerirCredelec = Number(prompt(`3. Sair `));
+        break;
+      default:
+        break;
+    }
+  } while (option !== 3);
 }
-
-
-
-
 
 do {
   option = Number(
@@ -276,71 +266,34 @@ do {
   );
 
   switch (option) {
-
+    case 1:
+      break;
+    case 2:
+      break;
+    case 3:
+      break;
     case 4:
-      let opcao = Number(prompt(
-        `1.Comprar para meu número
+      option = Number(prompt(`
+                1.Comprar para meu número
                 2.Comprar para outro número
                 3.voltar` ));
-      switch (opcao) {
+      switch (option) {
         case 1:
-          alert(ComprarmeuNumero());
+          alert(BuyMeuNumber());
           break;
         case 2:
-          alert(isValidateNumberCell());
+          alert(isValidatedPassword());
           break;
-        case 3:
-          break;
-        default:
+        default: alert("opcao ivalida");
           break;
       } break;
     case 5:
-      alert(comprarCedelec());
+      alert(buyCredelec());
       break;
     case 6:
       break;
-    case 7:
-      break;
-
-    default:
+    default: alert("opcao ivalida");
       break;
   }
 
 } while (option !== 7);
-
-
-function isValidatedPassword() {
-  let password = Number(prompt(" digite o pin"));
-  if (pin !== password) {
-    alert("pin errado");
-
-  } else {
-    let comfimar = Number(prompt(`comnfirmas a compra de CREDELECT de ${valorCompra} 1. comfimar a compra 2. sair`));
-
-
-  }
-}
-
-
-function isValidatedNumberCont() {
-
-  const inputContador = prompt("Número do contador");
-
-  // Verifica se o contador tem 11 numeros
-  if (inputContador.length !== 11 || isNaN(inputContador)) {
-    alert("Número do contador inválido!");
-    return false;
-  }
-
-  // Conversão para número após validação
-  const numeroContador = Number(inputContador);
-
-  // Validação do valor de compra
-  const valorCompra = Number(prompt("Insira o montante da compra"));
-  if (valorCompra < 10 || valorCompra > 25000 || isNaN(valorCompra)) {
-    alert("Valor da compra inválido!");
-    return false;
-  }
-
-  return true;
-}
