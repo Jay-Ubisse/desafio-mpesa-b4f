@@ -76,14 +76,14 @@ function BuyMeuNumber() {
       }
   }
 }
-function compareToAnotherNumber() {
+function BuyMeuNumberToAnotherNumber() {
   const receberNumero = prompt("digita o numero");
   if (
     (receberNumero.length === 9 && receberNumero.charAt(1) === 4)
       (receberNumero.length == 9 && receberNumero.charAt(1) !== 6)
       ((receberNumero.length == 9 && receberNumero.charAt(1) !== 2))
   ) {
-    pacotes = Number(
+    option = Number(
       prompt(
         `1. 2MT = 200 SMS/1d
       2. 4MT = 400mt SMS/3d
@@ -93,13 +93,13 @@ function compareToAnotherNumber() {
       6. voltar
       7. Menu Primcipal`
       ));
-    switch (pacotes) {
+    switch (option) {
       case 1:
         if (isValidatedPassword() == true) {
 
           if (saldo > 0.0) {
             saldo -= 2;
-            return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
+            return (`PARABÉNS, comprou sms's no valor de 2MT do  para o ${receberNumero}, o saldo da sua conta é ${saldo}.`)
           } else {
             alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
           }
@@ -110,7 +110,7 @@ function compareToAnotherNumber() {
         if (isValidatedPassword() == true) {
           if (saldo > 0.0) {
             saldo -= 4;
-            return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
+            return (`PARABÉNS, comprou sms's no valor de 4MT para o ${receberNumero}, o saldo da sua conta é ${saldo}.`)
           } else {
             alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
           }
@@ -120,7 +120,7 @@ function compareToAnotherNumber() {
         if (isValidatedPassword() == true) {
           if (saldo > 0.0) {
             saldo -= 10;
-            return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
+            return (`PARABÉNS, comprou sms's no valor de 10MT semanal para o ${receberNumero}, o saldo da sua conta é ${saldo}.`)
           } else {
             alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
           }
@@ -130,7 +130,7 @@ function compareToAnotherNumber() {
         if (isValidatedPassword() == true) {
           if (saldo > 0.0) {
             saldo -= 20;
-            return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
+            return (`PARABÉNS, comprou sms's no valor de 20MT para p ${receberNumero}, o saldo da sua conta é ${saldo}.`)
           } else {
             alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
           }
@@ -140,7 +140,7 @@ function compareToAnotherNumber() {
         if (isValidatedPassword() == true) {
           if (saldo > 0.0) {
             saldo -= 40;
-            return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
+            return (`PARABÉNS, comprou sms's no valor de 40MT para o ${receberNumero}, o saldo da sua conta é ${saldo}.`)
           } else {
             alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
           }
