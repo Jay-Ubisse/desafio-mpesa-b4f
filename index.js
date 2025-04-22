@@ -210,18 +210,23 @@ function buyNewCount() {
         if (isValidatedNumberCont() == true) {
           if (isValidatedAmount() == true) {
             if (isValidatedPassword() == true) {
-              alert(`comfirmas a compra de CREDELECT de ${valorCompra}  para ${name}1. comfimar a compra 2. sair`);
-              //falta mostrar no final de cada compra uma messagem nao sei porque nao funciona
+              if (saldo > 0.0) {
+                // option = Number(prompt(`comfirmas a compra de CREDELECT de ${valorCompra}  para ${name}1. comfimar a compra 2. sair`));
+                return (`PARABÉNS, comprou CREDELEC no valor de ${valorCompra}, para ${name}.`);
+              } else {
+                alert(`Saldo Insuficiente, para a Compra. Obrigado!`);
+              }/*
+              option = Number(prompt(`comfirmas a compra de CREDELECT de ${valorCompra}  para ${name}1. comfimar a compra 2. sair`));
+              if (option == 1) {      alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
+              }     } else {        alert("O pin e Invalide")    };*/
             } else {
-              alert("O pin e Invalide")
+              alert("Montante Invalido");
             };
           } else {
-            alert("Montante Invalido");
-          };
-        } else {
-          alert("Número do contador inválido!")
+            alert("Número do contador inválido!");
+          }
+          break;
         }
-        break;
       case 2:
         alert(manageCounters());
         break;
