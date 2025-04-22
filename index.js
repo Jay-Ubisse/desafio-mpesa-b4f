@@ -1,4 +1,4 @@
-let saldo = 2000;
+let saldo = 150;
 let pin = 1234;
 let option;
 
@@ -16,20 +16,23 @@ do {
     7. Sair
     `)
   );
-
-switch (option) {
-  case 1:
-    
-    break;
-  case 2:
-    break
-    case 3:
-  case 4:  comprarDadosJackpot()
-  default:
-    break;
-}
-
-
+ 
+  switch(option){
+    case 1:// codigo  Transferir dinheiro
+          break
+    case 2: //codigo Levantar dinheiro
+          break
+    case 3:// codigo  Depositar dinheiro  
+          break
+    case 4: // Chamadas, sms e dados
+          comprarDadosJackpot()
+          break     
+    case 5://codigo  Comprar credelec
+          break
+    case 6:// codigo  Minha conta
+          break
+   
+  }
 
 
 } while (option !== 7);
@@ -49,7 +52,7 @@ Option = Number(
   `)
 );
 
-switch (Option) {//1
+switch (Option) {
 
   case 1:Option = Number(
       prompt(`
@@ -69,9 +72,9 @@ switch (Option) {//1
     );
       
    
-  switch (Option) {//2
+  switch (Option) {
       case 1:  
-              
+                
                   Option = Number(
                   prompt(`
                   M-pesa
@@ -83,92 +86,88 @@ switch (Option) {//1
                       00.Menu principal
                   `)
                 );
+              
+          if(saldo>=50){
+              let ComparePin=Number(prompt("Digite o PIN:"))
+              if (pin===ComparePin) {
+                  saldo=saldo-50
+                  option=Number(prompt(`Pagar 50 MT para activar MB?
+                    1.Confirmar
+                    2.Cancelar`))
 
-                switch(option){//3
-                  case 1:  
-
-                    if(saldo>=50){
-                      let ComparePin=Number(prompt("Digite o PIN:"))
-                      if (pin===ComparePin) {
-                          saldo=saldo-50
-                          option=Number(prompt(`Pagar 50 MT para activar MB?
-                            1.Confirmar
-                            2.Cancelar`))
-        
-                          if(option===1){
-                          
-                            alert(` O seu pedido foi submetido com sucesso, seu novo saldo é ${saldo}`)
-                            }
-                            else{
-                              break
-                            }
-        
-                          
-                      } else{
-                       
-                          alert('O seu pedido falhou!')
-                      }
-        
-                  }
+                  if(option===1){
                   
-                  break;
-        
-                  case 2: if(saldo>=15){
-                    let ComparePin=Number(prompt("Digite o PIN:"))
-                    if (pin===ComparePin) {
-                        saldo=saldo-15
-                        option=Number(prompt(`Pagar 15 MT para activar MB?
-                          1.Confirmar
-                          2.Cancelar`))
-        
-                        if(option===1){
-                        
-                        alert(` O seu pedido foi submetido com sucesso, seu novo saldo é ${saldo}`)
-                          }
-                          else{
-                            break
-                          }
-        
-                        
-                    } else{
-                     
-                        alert('O seu pedido falhou!')
+                    alert(` O seu pedido foi submetido com sucesso, seu novo saldo é ${saldo}`)
                     }
-        
-                }
-                      break;
-        
-                  case 3:  if(saldo>=10){
-                    let ComparePin=Number(prompt("Digite o PIN:"))
-                    if (pin===ComparePin) {
-                        saldo=saldo-10
-                        option=Number(prompt(`Pagar 50 MT para activar MB?
-                          1.Confirmar
-                          2.Cancelar`))
-        
-                        if(option===1){
-                        
-                          alert(` O seu pedido foi submetido com sucesso, seu novo saldo é ${saldo}`)
-                          }
-                          else{
-                            break
-                          }
-        
-                        
-                    } else{
-                     
-                        alert('O seu pedido falhou!')
+                    else{
+                      break
                     }
-        
-                }
-                  break
-        
-                
+
+                  
+              } else{
+               
+                  alert('O seu pedido falhou!')
+              }
+
+          }
           
-                }
+          break;
 
+          case 2: if(saldo>=15){
+            let ComparePin=Number(prompt("Digite o PIN:"))
+            if (pin===ComparePin) {
+                saldo=saldo-15
+                option=Number(prompt(`Pagar 15 MT para activar MB?
+                  1.Confirmar
+                  2.Cancelar`))
 
-         
+                if(option===1){
+                
+                alert(` O seu pedido foi submetido com sucesso, seu novo saldo é ${saldo}`)
+                  }
+                  else{
+                    break
+                  }
+
+                
+            } else{
+             
+                alert('O seu pedido falhou!')
+            }
+
+        }
+              break;
+
+          case 3:  if(saldo>=10){
+            let ComparePin=Number(prompt("Digite o PIN:"))
+            if (pin===ComparePin) {
+                saldo=saldo-10
+                option=Number(prompt(`Pagar 50 MT para activar MB?
+                  1.Confirmar
+                  2.Cancelar`))
+
+                if(option===1){
+                
+                  alert(` O seu pedido foi submetido com sucesso, seu novo saldo é ${saldo}`)
+                  }
+                  else{
+                    break
+                  }
+
+                
+            } else{
+             
+                alert('O seu pedido falhou!')
+            }
+
+        }
+          break
+
+        
+  
+      default: alert('A opcao digitada é invalida')
+          break;
+
          
   }
 
