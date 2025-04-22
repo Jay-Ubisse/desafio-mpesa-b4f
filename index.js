@@ -1,4 +1,4 @@
-let saldo = 0;
+let saldo = 0.0;
 let pin = 1234;
 let option;
 let destino;
@@ -214,7 +214,7 @@ do {
           alert("PIN Inválido");
           break;
         }
-        if (confirmMessageBank(`${bankName}-Conta: ${accountNum} `, value, taxaBanco)) {
+        if (confirmMessageBank(`${bankName} Conta: ${accountNum} `, value, taxaBanco)) {
           bankTransfer(value, taxaBanco);
     
         } else {
