@@ -236,4 +236,79 @@ do {
       //alert(`Escolha uma opção válida`);
       break;
   } 
+let accountNumber;
+let nuib;
+let currentAmmount = 4500;
+let ammountToTranfer;
+const FEE = 10;
+let popMessage;
+    
+function confirm (nextMethod, prevMethod){
+    let confirmDialog = console.log(prompt("1. Confirmar\n 2. Voltar"));
+    if (confirmDialog === 1)
+        return nextMethod;
+    else if ( confirmDialog === 2)
+        return prevMethod;
+}
+
+function insertNuib(){
+    nuib = prompt("Insira o NUIB");
+    
+    if (isNaN(nuib) || nuib.substring(0,4) !== "0034" || nuib.length !== 8) //ainda por verificar
+        window.alert("erro!");
+    else{
+        // window.alert("sucesso");
+        insertAccountNumber();
+        // confirm(insertAccountNumber, insertNuib);
+        return nuib;
+    }
+}
+
+function insertAccountNumber (){
+    accountNumber = prompt("Insira o número de conta");    
+    if (isNaN(accountNumber) || accountNumber.length !== 8)
+        window.alert("Número de conta inválido!");
+    else{
+        insertAmmount();
+    }
+    return accountNumber;
+}
+
+function insertAmmount(){
+    
+    ammountToTranfer = Number(prompt(`Saldo disponível: ${currentAmmount}`+ "\n\nInsira o valor"));
+    if (isNaN(ammountToTranfer) & ammountToTranfer < 100)
+        window.alert("Valor Inválido! Tente novamente");
+    else
+        transfer();
+}
+
+function transfer(){
+    if (ammountToTranfer + FEE > currentAmmount)
+        window.alert("O seu saldo é insuficiente para realizar a operação.");
+    else{
+        let confirmMessage =  
+        Number(prompt (`\nTransferir ${ammountToTranfer}.00MT para a conta ${accountNumber}?\n\n`+
+        '1. Confirmar\n 2. Voltar'));
+        if (confirmMessage === 1){
+            currentAmmount -= ammountToTranfer + FEE;
+            sucessMessage()
+        }
+        else if (confirmMessage === 2)
+            insertAccountNumber();
+        else{
+            window.alert("Opção Inválida")
+            return;
+        }
+    }
+}
+
+function sucessMessage (){
+    popMessage =
+        `Transferiu com sucesso ${ammountToTranfer}.00MT para a conta ${accountNumber}.\n` +
+        `O seu novo saldo é ${currentAmmount}`;
+    window.alert(popMessage);    
+}
+
+insertNuib();
 } while (option !== 7);
