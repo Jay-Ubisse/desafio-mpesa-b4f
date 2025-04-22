@@ -215,10 +215,7 @@ function buyNewCount() {
                 return (`PARABÉNS, comprou CREDELEC no valor de ${valorCompra}, para ${name}.`);
               } else {
                 alert(`Saldo Insuficiente, para a Compra. Obrigado!`);
-              }/*
-              option = Number(prompt(`comfirmas a compra de CREDELECT de ${valorCompra}  para ${name}1. comfimar a compra 2. sair`));
-              if (option == 1) {      alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
-              }     } else {        alert("O pin e Invalide")    };*/
+              }
             } else {
               alert("Montante Invalido");
             };
