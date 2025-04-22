@@ -16,29 +16,30 @@ do {
     7. Sair
     `)
   );
- 
-  switch(option){
-    case 1:// codigo  Transferir dinheiro
-          break
+
+  switch (option) {
+    case 1: // codigo  Transferir dinheiro
+      break
     case 2: //codigo Levantar dinheiro
-          break
-    case 3:// codigo  Depositar dinheiro  
-          break
+      break
+    case 3: // codigo  Depositar dinheiro  
+      break
     case 4: // Chamadas, sms e dados
-          comprarDadosJackpot()
-          break     
-    case 5://codigo  Comprar credelec
-          break
-    case 6:// codigo  Minha conta
-          break
-   
+      comprarDadosJackpot()
+      break
+    case 5: //codigo  Comprar credelec
+      break
+    case 6: // codigo  Minha conta
+      break
+
   }
 
 
-} while (option !== 7);
+}
+while (option !== 7);
 
 
-function comprarDadosJackpot(){
+function comprarDadosJackpot() {
   option = Number(
     prompt(`
     M-pesa
@@ -49,70 +50,76 @@ function comprarDadosJackpot(){
     `)
   );
 
-  switch(option){
-    case 1: 
-                  option = Number(
-                    prompt(`
+  switch (option) {
+    case 1:
+      option = Number(
+        prompt(`
                     M-pesa
                   
                     1. Comprar Jackpots
                     2. Comprar dados
                     0. Menu principal
                     `)
-                  );
-            switch(option){
-                  case 1: //Comprar Jackpots
-                          comprarJackpot()
-                        break
-                  case 2://Comprar dados
-                    comprarDados()
-                        break
-                  case 0: //menu principal
-                        break
-                  default: alert('Opcao Invalida!')
-
-                        
-              
-            }
+      );
+      switch (option) {
+        case 1: //Comprar Jackpots
+          comprarJackpot()
           break
-    case 2://Pra o outro numero
-            const numeroRecebido = prompt(
-      "Digite o número para o qual pretende converter")
-            if(numeroRecebido.length === 9 && (numeroRecebido.charAt(1) === "4"|numeroRecebido.charAt(1) === "5") ){
-              option = Number(
-                prompt(`
+        case 2: //Comprar dados
+          comprarDados()
+          break
+        case 0: //menu principal
+          break
+        default:
+          alert('Opcao Invalida!')
+
+
+
+      }
+      break
+    case 2: //Pra o outro numero
+      const numeroRecebido = prompt(
+        "Digite o número para o qual pretende converter")
+      if (numeroRecebido.length === 9 && (numeroRecebido.charAt(1) === "4" | numeroRecebido.charAt(1) === "5")) {
+        option = Number(
+          prompt(`
                 M-pesa
               
                 1. Comprar Jackpots
                 2. Comprar dados
                 0. Menu principal
                 `)
-              );
-        switch(option){
-              case 1: //Comprar Jackpots
-                 comprarJackpot()
-                    break
-              case 2://Comprar dados
-                comprarDados()
-                    break
-              case 0: //menu principal
-                    break
-              default: alert('Opcao Invalida!')
+        );
+        switch (option) {
+          case 1: //Comprar Jackpots
+            comprarJackpot()
+            break
+          case 2: //Comprar dados
+            comprarDados()
+            break
+          case 0: //menu principal
 
-                    
-          
+            break
+          default:
+            alert('Opcao Invalida!')
+
+
+
         }
-            }
-            else{
-              alert('O numero digitado é invalido')
-            }
-          break
-             
+      } else {
+        alert('O numero digitado é invalido')
+      }
+      break
+
+      //estamos a trabalhar aqui
+    case 0:
+
+
   }
 }
 
 
-function comprarDados(){
+function comprarDados() {
   option = Number(
     prompt(`
     M-pesa
@@ -129,37 +136,40 @@ function comprarDados(){
    
     `)
   );
-    
-  switch(option){
-    case 1:// WFT
-                wft()
-        break
+
+  switch (option) {
+    case 1: // WFT
+      wft()
+      break
     case 2: // Por hora
-                porHora()
-        break
+      porHora()
+      break
     case 3: //Diario
-              comprarDiario()
-        break  
-    case 4://Semanal
+      comprarDiario()
+      break
+    case 4: //Semanal
       comprarSemanal()
-        break
-    case 5://Mensal
-        comprarMensais()
-        break
-    case 6://Infinito     
-    comprarInfinito()
-        break
-    case 7://Ticket( Netflix, musica e Game)
-    comprarTicket()
-        break
-    case 0: //voltar
-            break
-    default: mostrarMensagem()
+      break
+    case 5: //Mensal
+      comprarMensais()
+      break
+    case 6: //Infinito     
+      comprarInfinito()
+      break
+    case 7: //Ticket( Netflix, musica e Game)
+      comprarTicket()
+      break
+    case 0:
+      comprarDadosJackpot()
+      break
+
+    default:
+      mostrarMensagem()
   }
 }
 
 
-function wft(){
+function wft() {
 
   option = Number(
     prompt(`
@@ -173,27 +183,32 @@ function wft(){
         00.Menu principal
     `)
   );
-  
-  switch(option){
-    case 1://50MT
-        efectuarCompra(50)
-        break
-    case 2://15MT
-        efectuarCompra(15)
-        break
-    case 3://10MT
-            efectuarCompra(10)
-        break
-    case 4: efectuarCompra(10)
-    case 0://voltar
-       break
-    default:mostrarMensagem()           
+
+  switch (option) {
+    case 1: //50MT
+      efectuarCompra(50)
+      break
+    case 2: //15MT
+      efectuarCompra(15)
+      break
+    case 3: //10MT
+      efectuarCompra(10)
+      break
+    case 4:
+      efectuarCompra(10)
+    case 0: //voltar
+      comprarDados()
+
+      break
+
+    default:
+      mostrarMensagem()
   }
- 
+
 
 }
 
-function porHora(){
+function porHora() {
   option = Number(
     prompt(`
     Validas por 1h
@@ -205,24 +220,30 @@ function porHora(){
     `)
   );
 
-  switch(option){
-      case 1: //5MT=188MB
-        efectuarCompra(5)
-          break
-      case 2: // 6MT=226MB
-        efectuarCompra(6)
-          break
-      case 3: //7MT=264MB
-            efectuarCompra(7)
-          break
-      default:mostrarMensagem()
+  switch (option) {
+    case 1: //5MT=188MB
+      efectuarCompra(5)
+      break
+    case 2: // 6MT=226MB
+      efectuarCompra(6)
+      break
+    case 3: //7MT=264MB
+      efectuarCompra(7)
+      break
+    case 0:
+      wft()
+      break
 
-      
+
+    default:
+      mostrarMensagem()
+
+
   }
 
 }
 
-function   comprarDiario(){
+function comprarDiario() {
   option = Number(
     prompt(`
     Validas por 7 dias
@@ -238,34 +259,41 @@ function   comprarDiario(){
     `)
   );
 
-  switch(option){
+  switch (option) {
     case 1: // 7MT = 241MB
-            efectuarCompra(7)
-            break
+      efectuarCompra(7)
+      break
     case 2: //10MT= 353MB
-            efectuarCompra(10)
-            break
-    case 3:// 15MT = 529MB
-            efectuarCompra(15)
-            break
-    case 4://20MT = 715MB
-            efectuarCompra(20)
-            break
-    case 5://30MT = 1.4GB
-          efectuarCompra(30)
-          break
+      efectuarCompra(10)
+      break
+    case 3: // 15MT = 529MB
+      efectuarCompra(15)
+      break
+    case 4: //20MT = 715MB
+      efectuarCompra(20)
+      break
+    case 5: //30MT = 1.4GB
+      efectuarCompra(30)
+      break
     case 6: // 40MT = 1GB
-          efectuarCompra(40)
-    case 5: case 6: // 50MT =1.75GB
-    efectuarCompra(50)
+      efectuarCompra(40)
+      break
+    case 7: // 50MT =1.75GB
+      efectuarCompra(50)
+      break
+    case 0: // voltar
+      comprarDados()
+      break
 
-    default:mostrarMensagem()
+
+    default:
+      mostrarMensagem()
 
   }
 
 }
 
-function comprarSemanal(){
+function comprarSemanal() {
   option = Number(
     prompt(`
     Validas por 7 dias
@@ -280,32 +308,35 @@ function comprarSemanal(){
     `)
   );
 
-  switch(option){
-    case 1://30MT = 857MB
+  switch (option) {
+    case 1: //30MT = 857MB
       efectuarCompra(30)
-        break
-    case 2://50MT = 1.7GB
+      break
+    case 2: //50MT = 1.7GB
       efectuarCompra(50)
-        break
-    case 3://85MT = 2.9GB
-       efectuarCompra(85)
-        break
-    case 4://100MT = 3.4GB
-       efectuarCompra(100)
-        break
-    case 5://150MT = 5.2GB
-       efectuarCompra(150)
-        break
-    case 6://200MT = 7.1GB
-       efectuarCompra(200)
-        break
-    default: mostrarMensagem()
+      break
+    case 3: //85MT = 2.9GB
+      efectuarCompra(85)
+      break
+    case 4: //100MT = 3.4GB
+      efectuarCompra(100)
+      break
+    case 5: //150MT = 5.2GB
+      efectuarCompra(150)
+      break
+    case 6: //200MT = 7.1GB
+      efectuarCompra(200)
+      break
+    case 0:
+      comprarDados()
+    default:
+      mostrarMensagem()
   }
 
 }
 
 
-function comprarMensais(){
+function comprarMensais() {
   option = Number(
     prompt(`
     Validas por 7 dias
@@ -320,32 +351,35 @@ function comprarMensais(){
     `)
   );
 
-  switch(option){
+  switch (option) {
     case 1: //100MT = 2.8GB
-            efectuarCompra(100)
-            break
+      efectuarCompra(100)
+      break
     case 2: //200MT = 7GB
-            efectuarCompra(200)
-            break
-    case 3://300MT = 10.5GB
-            efectuarCompra(300)
-            break
-    case 4://500MT = 17.9GB
-            efectuarCompra(500)
-            break
-    case 5://1000MT = 35.8GB
-          efectuarCompra(1000)
-          break
+      efectuarCompra(200)
+      break
+    case 3: //300MT = 10.5GB
+      efectuarCompra(300)
+      break
+    case 4: //500MT = 17.9GB
+      efectuarCompra(500)
+      break
+    case 5: //1000MT = 35.8GB
+      efectuarCompra(1000)
+      break
     case 6: //1500MT = 53.6GB
-          efectuarCompra(1500)
-
-    default:mostrarMensagem()
+      efectuarCompra(1500)
+      break
+    case 0: //vpltar
+      comprarDados()
+    default:
+      mostrarMensagem()
 
   }
 
 }
 
-function  comprarInfinito(){
+function comprarInfinito() {
   option = Number(
     prompt(`
     Infinitas (Sem validade)
@@ -360,33 +394,38 @@ function  comprarInfinito(){
     `)
   );
 
-  switch(option){
-    case 1://10MT = 181MB
-        efectuarCompra(10)
-        break
+  switch (option) {
+    case 1: //10MT = 181MB
+      efectuarCompra(10)
+      break
     case 2: //20MT = 362MB
-        efectuarCompra(20)
-        break
+      efectuarCompra(20)
+      break
     case 3: //30MT = 542MB
-        efectuarCompra(30)
-    case 4://500MT = 903MB
+      efectuarCompra(30)
+    case 4: //500MT = 903MB
       efectuarCompra(500)
       break
-      case 5://100MT = 1.7
+    case 5: //100MT = 1.7
       efectuarCompra(1000)
       break
-    case 6://1500MT = 2.6GB
-        efectuarCompra(1500)
+    case 6: //1500MT = 2.6GB
+      efectuarCompra(1500)
       break
-      default:mostrarMensagem()
+    case 0:
+      comprarDados()
+      break
+
+    default:
+      mostrarMensagem()
   }
-  
+
 
 }
 
-   function comprarTicket(){
-    option = Number(
-      prompt(`
+function comprarTicket() {
+  option = Number(
+    prompt(`
       Infinitas (sem validade)
       1. 100MT = NetFlix/youTube (4GB)/1d
       2. 10MT = Musica (381MB)/1d
@@ -396,60 +435,62 @@ function  comprarInfinito(){
       0.Voltar
       00.Menu principal
       `)
-    );
-    switch(option){
-      case 1://100MT = NetFlix/youTube (4GB)/1d
-             efectuarCompra(100)
+  );
+  switch (option) {
+    case 1: //100MT = NetFlix/youTube (4GB)/1d
+      efectuarCompra(100)
       break
-      case 2:// 10MT = Musica (381MB)/1d
-            efectuarCompra(10)
-            break
-      case 3:// 100MT = Game(381MB)/d
-            efectuarCompra(10)
-        break
-      default:mostrarMensagem()
-    }
-  
-   }
+    case 2: // 10MT = Musica (381MB)/1d
+      efectuarCompra(10)
+      break
+    case 3: // 100MT = Game(381MB)/d
+      efectuarCompra(10)
+      break
+    case 0: //voltar
+      comprarDados()
+    default:
+      mostrarMensagem()
+  }
+
+}
 
 
 
 
-function efectuarCompra(valor){
-  if(saldo>=valor){
-    let ComparePin=Number(prompt("Digite o PIN:"))
-    if (pin===ComparePin) {
-        saldo=saldo-valor
-        option=Number(prompt(`Pagar ${valor} MT para activar?
+function efectuarCompra(valor) {
+  if (saldo >= valor) {
+    let ComparePin = Number(prompt("Digite o PIN:"))
+    if (pin === ComparePin) {
+      saldo = saldo - valor
+      option = Number(prompt(`Pagar ${valor} MT para activar?
           1.Confirmar
           2.Cancelar`))
 
-        if(option===1){
-        
-          alert(` O seu pedido foi submetido com sucesso, seu novo saldo é ${saldo}`)
-          }
-          else{
-            return
-          }
+      if (option === 1) {
 
-        
-    } else{
-     
-        alert('O seu pedido falhou!')
+        alert(` O seu pedido foi submetido com sucesso, seu novo saldo é ${saldo}`)
+      } else {
+        return
+      }
+
+
+    } else {
+
+      alert('O seu pedido falhou!')
     }
-  } else{
+  } else {
     alert('O seu saldo é insuficiente!')
   }
-    
+
 
 }
 
-function mostrarMensagem(){
- alert('A opcao inserida é invalida')
+function mostrarMensagem() {
+  alert('A opcao inserida é invalida')
 }
 
 
-function comprarJackpot(){
+function comprarJackpot() {
   option = Number(
     prompt(`
     Dados+SMS e Minutos p/todas redes
@@ -461,16 +502,19 @@ function comprarJackpot(){
     `)
   );
 
-    switch(option){
-      case 1://10MT = 13min+200MB+100SMS/1d
-          efectuarCompra(10)
-          break
-      case 2:// 20MT = 26min+400MB+100SMS/1d
-          efectuarCompra(20)
-          break
-      case 3://50MT = 54min+1GB+25SMS/1d
-          efectuarCompra(50)
-          break
-      default:mostrarMensagem() 
-    }
+  switch (option) {
+    case 1: //10MT = 13min+200MB+100SMS/1d
+      efectuarCompra(10)
+      break
+    case 2: // 20MT = 26min+400MB+100SMS/1d
+      efectuarCompra(20)
+      break
+    case 3: //50MT = 54min+1GB+25SMS/1d
+      efectuarCompra(50)
+      break
+    case 0:
+      comprarDados()
+    default:
+      mostrarMensagem()
+  }
 }
