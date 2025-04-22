@@ -1,4 +1,4 @@
-let saldo = 0.0;
+let saldo = 250;
 let pin = 1234;
 let option;
 
@@ -42,41 +42,47 @@ do {
   switch (destino) {
     case 1: //Transferir para Carteiras Moveis
     // M-pesa
-    const DIGITAR_NUMERO = prompt ("Digita um numero valido");
+   const DIGITAR_NUMERO = prompt ("Digita um número valido");
     if(
       (DIGITAR_NUMERO.length === 9 && DIGITAR_NUMERO.charAt(1)==="4") ||
       (DIGITAR_NUMERO.length === 9 && DIGITAR_NUMERO.charAt (1) === "5")
     ){
     
-    const TRANSFERIR_VALOR = Number (prompt ("Digita o valor"));
+    const TRANSFERIR_VALOR = Number (prompt ("Insira o valor"));
   
     if (TRANSFERIR_VALOR > saldo){
       alert("Falha, o saldo da sua conta M-pesa é insuficiente para completar a transacção.")      
-    }
+    }else{ 
+    };
 
-    const MEU_PIN = Number(`Insira o pin válido`)
+    const MEU_PIN = Number (prompt(`Insira o pin válido`));
     if (MEU_PIN === pin) {
-      prompt(`Estas a tranferir ${TRANSFERIR_VALOR} para ${DIGITAR_NUMERO} e a taxa é de 0Mts
+      let confirmacao = Number (prompt(`Estas a tranferir ${TRANSFERIR_VALOR}MTs para ${DIGITAR_NUMERO} e a taxa é de 0Mts
         1. Confirmar
         2. Cancelar
           
-        `)
+        `))
           switch (confirmacao) {
             case 1:
-              alert(`Confirmado, transferiste ${TRANSFERIR_VALOR}MTs para ${DIGITAR_NUMERO} com sucesso o seu saldo actual é de ${saldo}`)  
+              alert(`Confirmado, transferiste ${TRANSFERIR_VALOR}MTs para ${DIGITAR_NUMERO} com sucesso a taxa é 0MTs o seu saldo actual é de ${saldo}MTs`)  
+      
               break;
             case 2:
               prompt(option)
             
           }
             
-      }
+      };
         
       } else {
-        M !== pin
+        
         alert("Pin incoreto")
       }
-     
+
+      
+
+
+   
     
     // M-kesh
     const NUMERO = prompt ("Digita um número valido");
@@ -92,30 +98,32 @@ do {
         
    const INSIRA_PIN = Number(prompt(`Insira o pin`));
     if (INSIRA_PIN === pin) {
-      prompt(`Estas a tranferir ${VALOR} para ${NUMERO} e a taxa é de 0Mts
+    let confirmacao = Number(
+      prompt(`Estas a tranferir ${VALOR} para ${NUMERO} e a taxa é de 5Mts
         1. Confirmar
         2. Cancelar
           
         `)
+    )  
           switch (confirmacao) {
             case 1:
-              alert(`Confirmado, transferiste ${VALOR}MTs para ${NUMERO} com sucesso o seu saldo actual é de ${saldo}`)  
-              break;
+              alert(`Confirmado, transferiste ${VALOR}MTs para ${NUMERO} com sucesso a taxa é de ${TAXA_MOVEL}MTs e o seu saldo actual é de ${saldo}MTs`)  
+             break;
             case 2:
               prompt(option)
+            break;
             
           }
-               } else { 
-    INSIRA_PIN !== pin
+    } else { 
         alert("Pin incoreto")
     }
-     if (SALDO_TOTAL = saldo - (VALOR - TAXA_MOVEL)) {
+    if (SALDO_TOTAL = saldo - (VALOR - TAXA_MOVEL)) {
        }
    
 
   
   
-  
+
   //E-mola      
   let receberNumero = promt(`Digita um número válido`)
   if ((receberNumero.length === 9 && receberNumero.charAt(1) === "6")||
@@ -134,19 +142,19 @@ do {
   
   }
 
-
+  
   
   let pin1 = Number(prompt("Por favor introduza o PIN:"));
 
   if (pin === pin1) { 
-    prompt(`Estas a tranferir ${valor} para ${receberNumero} e a taxa é de 0Mts
+    prompt(`Estas a tranferir ${valor} para ${receberNumero} e a taxa é de 5Mts
       1. Confirmar
       2. Cancelar
         
       `)
         switch (confirmacao) {
           case 1:
-            alert(`Confirmado, transferiste ${valor}MTs para ${receberNumero} com sucesso o seu saldo actual é de ${saldo}`)  
+            alert(`Confirmado, transferiste ${valor}MTs para ${receberNumero} com sucesso a taxa é de ${TAXA_MOVEL}MTs e o o seu saldo actual é de ${saldo}Mts`)  
             break;
           case 2:
             prompt(option)
@@ -156,8 +164,7 @@ do {
     alert ("PIN incorrecto, por favor verifica o PIN e tenta novamente")
   }
   
-  if (SALDO_TOTAL = saldo - (valor - TAXA_MOVEL)) {
-  }
+  if (SALDO_TOTAL = saldo - (valor - TAXA_MOVEL)) {} 
 
     }
 
@@ -171,7 +178,7 @@ do {
       );
       break;
     default:
-      alert(`Escolha uma opção válida`);
+      //alert(`Escolha uma opção válida`);
       break; // destino
   }
   switch (bancaria) {
@@ -226,7 +233,7 @@ do {
       break;
 
     default:
-      alert(`Escolha uma opção válida`);
+      //alert(`Escolha uma opção válida`);
       break;
   } 
 } while (option !== 7);
