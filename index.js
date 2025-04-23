@@ -284,7 +284,7 @@ do {
         case 2:
           alert(isValidatedPassword());
           break;
-        default: alert("opcao ivalida");
+        default: alert("opcao invalida");
           break;
       } break;
     case 5:
@@ -292,7 +292,7 @@ do {
       break;
     case 6:
       break;
-    default: alert("opcao ivalida");
+    default: alert("opcao invalida");
       break;
   }
 
