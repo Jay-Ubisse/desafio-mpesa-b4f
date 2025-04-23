@@ -1,4 +1,4 @@
-let saldo = 0.0;
+let saldo = 50.0;
 let pin = 1234;
 let option;
 let destino;
@@ -58,26 +58,22 @@ do {
         case 1: //Transferir para Carteiras Moveis
           // M-pesa
           const DIGITAR_NUMERO = prompt("Digita um número valido");
-          if (DIGITAR_NUMERO.length === 9 && (DIGITAR_NUMERO.charAt(1) === "4" || DIGITAR_NUMERO.charAt(1) === "5")
-          ) {
-            const TRANSFERIR_VALOR = Number(prompt("Insira o valor"));
-    
-            if (TRANSFERIR_VALOR > saldo) {
-              alert(
-                "Falha, o saldo da sua conta M-pesa é insuficiente para completar a transacção."
-              );
-            } else {
+            if (DIGITAR_NUMERO.length === 9 && (DIGITAR_NUMERO.charAt(1) === "4" || DIGITAR_NUMERO.charAt(1) === "5")
+             );
+          const TRANSFERIR_VALOR = Number(prompt("Insira o valor"));
+          
+            if (TRANSFERIR_VALOR < saldo) {
               const MEU_PIN = Number(prompt(`Insira o pin válido`));
               if (MEU_PIN === pin) {
                 let confirmacao = Number(
-                  prompt(`Estas a tranferir ${TRANSFERIR_VALOR}MTs para ${DIGITAR_NUMERO} e a taxaBanco é de 0Mts
+                  prompt(`Estas a tranferir ${TRANSFERIR_VALOR}MTs para ${DIGITAR_NUMERO} escolha uma opção
             1. Confirmar
             2. Cancelar `));
                 switch (confirmacao) {
                   case 1:
                     saldo = saldo - TRANSFERIR_VALOR;
                     alert(
-                      `Confirmado, transferiste ${TRANSFERIR_VALOR}MTs para ${DIGITAR_NUMERO} com sucesso a taxaBanco é 0MTs o seu saldo actual é de ${saldo}MTs`
+                      `Confirmado, transferiste ${TRANSFERIR_VALOR}MTs para ${DIGITAR_NUMERO} com sucesso o seu saldo actual é de ${saldo}MTs`
                     );
     
                     break;
@@ -85,34 +81,35 @@ do {
                     alert("Transferência Cancelada");
                     break;
                   default:
-                    alert("Opção Inválida")
+                    alert("Opção Inválida");
                 }
               } else {
                 alert("Pin incoreto");
               }
-            }
-    
+            } else {
+              alert(
+                "Falha, o saldo da sua conta M-pesa é insuficiente para completar a transacção."
+              );
+            };
+          
     
             // M-kesh
             const NUMERO = prompt("Digita um número valido");
-            if (NUMERO.length === 9 && (NUMERO.charAt(1) === "2" || NUMERO.charAt(1) === "3")) {
+            if (NUMERO.length === 9 && (NUMERO.charAt(1) === "2" || NUMERO.charAt(1) === "3")){
               const VALOR = Number(prompt(`Digita o valor`));
-              if (VALOR > saldo) {
-                alert(
-                  "Falha, o saldo da sua conta M-pesa é insuficiente para completar a transacção.");
-              } else {
+              if (VALOR + taxaMovel < saldo) {
                 const INSIRA_PIN = Number(prompt(`Insira o pin`));
                 if (INSIRA_PIN === pin) {
                   let confirmacao = Number(
-                    prompt(`Estas a tranferir ${VALOR} para ${NUMERO} e a taxaBanco é de 5Mts
-            1. Confirmar
-            2. Cancelar
+                    prompt(`Estas a tranferir ${VALOR} para ${NUMERO} e a taxa é de 5Mts
+                    1. Confirmar
+                    2. Cancelar
               
-            `));
-                  switch (confirmacao) {
+                    `));
+                    switch (confirmacao) {
                     case 1:
                       alert(
-                        `Confirmado, transferiste ${VALOR}MTs para ${NUMERO} com sucesso a taxaBanco é de ${taxaMovel}MTs e o seu saldo actual é de ${saldo}MTs`
+                        `Confirmado, transferiste ${VALOR}MTs para ${NUMERO} com sucesso a taxa é de ${taxaMovel}MTs e o seu saldo actual é de ${saldo}MTs`
                       );
                       break;
                     case 2:
@@ -124,8 +121,7 @@ do {
                 }
     
               }
-    
-            }
+            }  else {alert("Falha, o saldo da sua conta M-pesa é insuficiente para completar a transacção.");};
     
             //E-mola
             let receberNumero = prompt(`Digita um número válido`);
@@ -133,45 +129,44 @@ do {
               receberNumero.charAt(1) === "7")) {
               alert("Você está transferindo dinheiro para uma conta E-mola");
             } else {
-              prompt(
+              alert(
                 "Número de telefone inválido, por favor introduza novamente o número"
               );
-            }
+            };
     
             const valor = Number(prompt("Digita o valor:"));
-            if (valor > saldo) {
+            if (valor + taxaMovel < saldo) {
+              const pin1 = Number(prompt("Por favor introduza o PIN:"));
+              if (pin === pin1) {
+                let confirma = Number(prompt(`Estas a tranferir ${valor} para ${receberNumero} e a taxa é de 5Mts
+                1. Confirmar
+                2. Cancelar
+              
+                `));
+                switch (confirma) {
+                  case 1:
+                    saldo = saldo - (valor + taxaMovel);
+                    alert(
+                      `Confirmado, transferiste ${valor}MTs para ${receberNumero} com sucesso a taxa é de ${taxaMovel}MTs e o o seu saldo actual é de ${saldo}Mts`
+                    );
+                    break;
+                  case 2:
+                    alert("Transferência Cancelada");
+                    break;
+                  default:
+                    alert("Opção Inválida");
+                    break;
+                }
+              
+              } else {alert("PIN incorrecto, por favor verifica o PIN e tenta novamente")};
+            } else {
               alert(
-                "Falha, o saldo da sua conta M-pesa é insuficiente para completar a transacção."
+              "Falha, o saldo da sua conta M-pesa é insuficiente para completar a transacção."
               );
-            } else {
-            }
+            };
     
-            const pin1 = Number(prompt("Por favor introduza o PIN:"));
-    
-            if (pin === pin1) {
-              let confirma = Number(prompt(`Estas a tranferir ${valor} para ${receberNumero} e a taxaBanco é de 5Mts
-          1. Confirmar
-          2. Cancelar
-            
-          `));
-              switch (confirma) {
-                case 1:
-                  saldo = saldo - (valor + taxaMovel);
-                  alert(
-                    `Confirmado, transferiste ${valor}MTs para ${receberNumero} com sucesso a taxa é de ${taxaMovel}MTs e o o seu saldo actual é de ${saldo}Mts`
-                  );
-                  break;
-                case 2:
-                  alert("Transferência Cancelada");
-                  break;
-                default:
-                  alert("Opção Inválida");
-                  break;
-              }
-            } else {
-              alert("PIN incorrecto, por favor verifica o PIN e tenta novamente");
-            }
-          }
+
+          
           break;
       
     
