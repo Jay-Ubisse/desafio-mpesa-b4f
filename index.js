@@ -1,9 +1,10 @@
-let saldo = 0.0;
+let saldo = 500;
 let pin = 1234;
 let option;
 let pacotes;
+let conf;
 function isValidatedPassword() {
-  let password = Number(prompt(" digite o pin"));
+  let password = Number(prompt(" digite o pin: "));
   if (pin !== password) {
     alert("pin errado");
 
@@ -12,8 +13,9 @@ function isValidatedPassword() {
   }
 
 }
-function BuyMeuNumber() {
-  option = Number(prompt(`
+//funcao para comprar sms para meu numero
+function BuyMyNumber() {
+  pacotes = Number(prompt(`
               1. 2MT = 100 SMS/1d
               2. 4MT = 180 SMS/3d
               3. 10MT = 500 SMS/7d
@@ -21,14 +23,25 @@ function BuyMeuNumber() {
               5. 40MT = 2000 SMS/30d
               6. voltar
               7. Menu Principal
-              `))
-  switch (option) {
+              `));
+     //switch case dos pacotes de internet         
+  switch (pacotes) {
     case 1:
       if (isValidatedPassword() == true) {
 
         if (saldo > 0.0) {
-          saldo -= 2;
-          return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
+          saldo -= 2; 
+          option=Number(prompt(
+            `1.Confirmar
+             2.cancelar
+             `
+          ))
+          if(option===1){
+            return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
+          }else{
+            return;
+          }
+        
         } else {
           alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
         }
@@ -39,8 +52,16 @@ function BuyMeuNumber() {
       if (isValidatedPassword() == true) {
         if (saldo > 0.0) {
           saldo -= 4;
-          return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
-        } else {
+          option=Number(prompt(
+            `1.Confirmar
+            2.cancelar`
+          ))
+          if(option===1){
+            alert (`PARABÉNS, comprou sms's no valor de 4MT, o saldo da sua conta é ${saldo}.`)
+          }else{
+            return;
+          }
+        }else{
           alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
         }
       }
@@ -49,7 +70,15 @@ function BuyMeuNumber() {
       if (isValidatedPassword() == true) {
         if (saldo > 0.0) {
           saldo -= 10;
-          return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
+          option=Number(prompt(
+            `1.Confirmar
+            2.cancelar`
+          ))
+          if(option===1){
+            alert (`PARABÉNS, comprou sms's no valor de 10MT, o saldo da sua conta é ${saldo}.`)
+          }else{
+            return;
+          }
         } else {
           alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
         }
@@ -59,7 +88,16 @@ function BuyMeuNumber() {
       if (isValidatedPassword() == true) {
         if (saldo > 0.0) {
           saldo -= 20;
-          return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
+          option=Number(prompt(
+            `1.Confirmar
+            2.cancelar`
+          ))
+          if(option===1){
+            alert (`PARABÉNS, comprou sms's no valor de 20MT, o saldo da sua conta é ${saldo}.`)
+          }else{
+            return;
+          }
+      
         } else {
           alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
         }
@@ -69,11 +107,27 @@ function BuyMeuNumber() {
       if (isValidatedPassword() == true) {
         if (saldo > 0.0) {
           saldo -= 40;
-          return (`PARABÉNS, comprou sms's no valor de 2MT, o saldo da sua conta é ${saldo}.`)
+          option=Number(prompt(
+            `1.Confirmar
+            2.cancelar`
+          ))
+          if(option===1){
+            alert (`PARABÉNS, comprou sms's no valor de 40MT, o saldo da sua conta é ${saldo}.`)
+          }else{
+            return;
+          }
+         
         } else {
           alert(`Saldo Insuficiente, o saldo da sua conta é ${saldo}. Obrigado!`);
         }
       }
+      break;
+      //case para voltar ao menu anterior
+      case 6:
+        return;
+      //case para voltar ao menu principal
+      case 7:
+      return BuyMyNumber();
   }
 }
 function BuyMeuNumberToAnotherNumber() {
@@ -91,7 +145,7 @@ function BuyMeuNumberToAnotherNumber() {
       4. 20MT = 2000 SMS/7d
       5. 40MT = 4000 SMS/30d 
       6. voltar
-      7. Menu Primcipal`
+      7. Menu Principal`
       ));
     switch (option) {
       case 1:
@@ -281,7 +335,7 @@ do {
                 3.voltar` ));
       switch (option) {
         case 1:
-          alert(BuyMeuNumber());
+          alert(BuyMyNumber());
           break;
         case 2:
           alert(isValidatedPassword());
