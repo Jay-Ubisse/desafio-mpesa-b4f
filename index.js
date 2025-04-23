@@ -12,7 +12,7 @@ function isValidatedPassword() {
   }
 
 }
-function BuyMeuNumber() {
+function buyMyNumber() {
   option = Number(prompt(`
               1. 2MT = 100 SMS/1d
               2. 4MT = 180 SMS/3d
@@ -76,7 +76,7 @@ function BuyMeuNumber() {
       }
   }
 }
-function BuyMeuNumberToAnotherNumber() {
+function compareToAnotherNumber() {
   const receberNumero = prompt("digita o numero");
   if (
     (receberNumero.length === 9 && receberNumero.charAt(1) === 4)
@@ -184,7 +184,7 @@ function buyCredelec() {
         alert(buyNewCount());
         break;
       case 2:
-        alert(gerirCredelec());
+        alert(manageCounters());
         break;
       case 3:
         if (isValidatedPassword() == true) {
@@ -281,7 +281,7 @@ do {
                 3.voltar` ));
       switch (option) {
         case 1:
-          alert(BuyMeuNumber());
+          alert(buyMyNumber());
           break;
         case 2:
           alert(isValidatedPassword());
