@@ -81,6 +81,7 @@ function opcaoMinhaConta() {
         } else {
           alert("PIN incorreto, tente novamente");
         }
+      
     }
   } while (option !== 3);
 }
