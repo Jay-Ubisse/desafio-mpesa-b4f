@@ -33,10 +33,7 @@ do {
 } while (option !== 7);
 
 function depositarDinheiro() {
-  let validacao = Number(prompt(`Insira o seu pin`));
-  while (validacao !== pin) {
-    validacao = Number(prompt(`Pin invalido, tente novamente!`));
-  }
+  pinValidation()
   let deposit = Number(
     prompt("Depositar dinheiro \n\n Qual é o valor que deseja depositar?")
   );
@@ -67,22 +64,18 @@ function opcaoMinhaConta() {
     );
     switch (option) {
       case 1:
-        let nr = Number(prompt("digite o pin"));
-
-        if (nr === pin) {
-          alert(`O seu saldo é de ${saldo.toFixed(2)} MT`);
-        } else {
-          alert("pin errado");
-        }
+      pinValidation()  
+      alert(`O seu saldo é de ${saldo.toFixed(2)} MT`);
         break;
       case 2:
         const lastPIN = Number(prompt("Insira o pin anterior"));
         if (lastPIN === pin) {
           const newPIN = Number(prompt("Insira o novo pin"));
           if (newPIN !== pin) {
+            Number(prompt("confirma o pin"));
             alert("PIN alterado com sucesso");
             pin = newPIN;
-          } else {
+          } else 
             alert("O pin Actual deve ser diferente do Antigo");
           }
         } else {
@@ -108,13 +101,14 @@ function withdrawMoney() {
 
       if (agentNumber.length === 6) {
         const amount = Number(prompt("Insira o montante para levantar"));
-        if (amount + 10 > saldo) {
+        pinValidation()
+        if (amount + 5 > saldo) {
           alert("Saldo insuficiente.");
         } else {
-          saldo -= amount;
+          saldo -= amount+5;
           alert(
             `Você levantou ${amount} MT do agente ${agentNumber}. A taxa foi de 10Mt, o seu  novo saldo é: ${
-              saldo - 10
+              saldo - 5
             } Mt`
           );
         }
@@ -134,20 +128,13 @@ function withdrawMoney() {
       );
       switch (atm) {
         case 1:
-          const ponto24 = Number(prompt("Insira o seu PIN"));
-          if (ponto24 === pin) {
-            alert(`Insira o código ${generateRandomNumbers()} no ATM`);
-          } else {
-            alert("O PIN está incorreto");
-          }
+          pinValidation()
+          alert(`Insira o código ${generateRandomNumbers()} no ATM`);
           break;
         case 2:
-          const simoRede = Number(prompt("Insira o seu PIN"));
-          if (simoRede === pin) {
-            alert(`Insira o código ${generateRandomNumbers()} no ATM`);
-          } else {
-            alert("O PIN está incorreto");
-          }
+          pinValidation()
+          alert(`Insira o código ${generateRandomNumbers()} no ATM`);
+        
           break;
         case 3:
           break;
@@ -169,4 +156,11 @@ function generateRandomNumbers() {
     numeros += Math.floor(Math.random() * 10);
   }
   return numeros;
+}
+
+function pinValidation(){
+  let validacao = Number(prompt(`Insira o seu pin`));
+  while (validacao !== pin) {
+    validacao = Number(prompt(`Pin invalido, tente novamente!`));
+  }
 }
